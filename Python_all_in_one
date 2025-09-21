@@ -1,0 +1,546 @@
+print('Rise & Shine!')
+
+#dynamically types: datatype is defined at runtime
+n=0
+print(type(n))
+n="abc"
+print(type(n))
+
+#None is null
+n=None
+print(type(n))
+
+#Multiple assignments
+a, b, c = 2, 4, 5
+print('a ', a, '\nb ', b, '\nc ',c)
+
+n=10
+#increment
+n+=1
+n=n+1
+#n++  error
+
+n=10
+#if else
+if n<10:
+    print('n is less than 10')
+elif n>10:
+    print('n>10')
+else:
+    #print(n+' is equal to 10')  can only concatenate str not int
+    print(n, 'is equal to 10')
+    #when you use a comma (,) inside a print() statement, it automatically adds a single space between the elements being printed
+
+#Paranthesis for multiline
+# and for &&
+# or for ||
+
+#while loop
+n=0
+while (n<5):
+    print(n)
+    n+=1
+
+#for loop
+for i in range(5):
+    print(i)
+
+# stop (exclusive)
+# start, stop
+# start, stop, step
+
+for i in range(2,6):
+    print(i)
+
+for i in range (5, 1 , -2):
+    print(i)
+
+#division by decimal by default
+print(5/2)
+
+#use // for integer division
+# CAREFUL (round down not round towards zero)
+print(5//2)
+
+print(-3//2)
+
+#workaround
+print(int(-3/2))
+
+#modulos
+print(10%3)
+
+#inconsistent with neg values
+print(-10%3)
+
+#workaround
+import math
+print(math.fmod(-10,3))
+
+#more math functions
+print(math.floor(5/2))
+print(math.ceil(5/2))
+print(math.sqrt(25))
+print(int(math.pow(2,3)))
+
+#max and min b/w numbers
+print(max(5.5,10))
+print(min(5.5,10))
+
+#max and min Int
+float("inf")
+print(float("inf"))
+float("-inf")
+#The ValueError: invalid literal for int() with base 10: ' ' error occurs when you try to 
+# convert a string to an integer using the int() function, but the 
+# string is not in a valid format that can be interpreted as a base 10 integer.
+#int("inf")
+
+#Python numbers are infinite so they never overflow.
+
+print("------------------------Lists-----------------")
+
+#Arrays = Lists Dynamic arrays, therefore
+# can be used as a stack
+arr = [1,2,3,4]
+print("--------Lists------")
+arr.append(9)
+print("arr: ",arr)
+
+#List are mutable, means copied by ref not value
+
+y = arr      #copy the ref of list, modifies arr as well
+y=arr[:]     #copy the list by value, not ref,#doesn't modifies arr
+print("y: ", y)
+y[0] = 789       #modifies the arr as well
+print(y, "\n", arr)
+
+
+#remove ele from the end
+arr.pop()
+print(arr)
+arr.pop(0)
+print(arr)
+
+#remove for a vlaue
+arr.remove(3)
+print(arr)
+
+arr.append(9900)
+print(arr)
+
+arr.append([5,6,7,8])
+print(arr)
+
+#extends : adding an entire list as an element  
+arr.extend([5,6,7,8])
+print(arr)
+
+arr.insert(2,60)
+print(arr)
+
+arr[0]=90
+print(arr)
+
+#initialize an array of size n with default value of 1
+arr = [1]*4
+print(arr)
+print(len(arr))
+
+#careful: neg index is not out of bounds in python
+print(arr[-1])
+
+#sublists aka slicing
+arr=[1,2,3,4,5,6,7,0]
+print(arr[1:6])
+
+#Unpacking
+a,b,c = [3,5,3]
+print(a,b,c)
+
+#Loop through arrays
+nums = [1,2,3]
+
+#using index
+for i in range(len(nums)):
+    print(nums[i])
+
+#without index
+for n in nums:
+    print(n)
+
+#With index and value
+for i,n in enumerate(nums):
+    print(i, n)
+
+ #loop through muliple arrays simultaneously 
+ #with unpacking and zip helper fun
+
+nums1=[1,2,3]
+nums2 =[4,5,6]
+for n1, n2 in zip(nums1, nums2):
+    print(n1, n2)
+
+#Reverse (doesn't return anything) -> None
+nums1.reverse()
+print(nums1)
+
+#sort -> None (null)
+nums1.sort()
+print(nums1)
+
+nums1.sort(reverse=True)
+print(nums1)
+
+arr = ["aryan", "bob", "alice", "catalyn"]
+arr.sort()
+print(arr)
+
+#cusotm sort (by length of string)
+arr.sort(key = lambda x:len(x))
+print(arr)
+
+#list comprehension: a shorthand for intializing list
+arr = [i for i in range(5)]
+print(arr)
+
+arr= [i+i for i in range(5)]
+print(arr)
+
+#2-D list
+arr = [[0]*4 for i in range(4)]
+print(arr)
+arr[0][2]=10
+print(arr)
+
+#This won't work, each of the rows is same
+arr = [[0]*4]*4
+print(arr)
+
+arr[0][2]=10
+print(arr)
+
+#Strings
+#  are similar to arrays
+s="abc"
+print(s[0:2])
+
+#methods on string
+h = "hello"
+print(h.upper())
+print(h.lower())
+print(h.capitalize())
+print(h.count('LL'))
+print(h.upper().count("LL"))
+print("hello world".count('o'))
+
+#Strings are immutable
+#s[0]='c'    error
+
+#can update the string  O(n)
+s+="def"
+print(s)
+
+#Valid numeric strings can be converted
+print(int("123") + int("789"))
+
+#and numbers can be converted to string
+print(str(124)+str(908))   #appends the string together
+
+#ASCII value of a char
+print(ord('a'))
+
+#Combine a list of string(with and empty string 
+#delimiter)
+strings = ['ab','cd','ef']
+print("".join(strings))
+print(" ".join(strings))
+
+print("--------------------------Dictonary----------------")
+
+#HashMap (aka dictionary)
+myMap ={}
+myMap["alice"] = 88
+myMap["bob"]=77
+print(myMap)
+print("len: ",len(myMap))
+
+del myMap["bob"]
+print(myMap)
+
+#we generally convert to list because return is of some other type
+print(list(myMap.keys()))
+print(list(myMap.values()))
+print(list(myMap.items()))
+
+myMap["alice"]=900
+print(myMap)
+
+print("alice" in myMap)
+print(90 in myMap)
+
+myMap.pop("alice")
+print(myMap)
+
+print('alice' in myMap)
+
+myMap = {"alice":90, "bob": 23}
+print(myMap)
+
+#dict comprehension
+myMap = {i:2*i for i in range(6)}
+print(myMap)
+
+#looping through map
+myMap = {"alice":90, "bob": 23}
+
+for key in myMap:
+    print(key, myMap[key])
+
+for val in myMap.values():
+    print(val)
+
+for key, val in myMap.items():
+    print(key, val)
+
+print("-----------Comprehension--------------")
+# one line initialization of list/tuple/dict and many other things
+#only python has this
+
+x= [x for x in range(5)]
+print(x)
+
+x= [0 for x in range(5)]
+print(x)
+
+x= [[0 for x in range(6)] for x in range(5)]
+print(x)
+
+x = [i for i in range(20) if i%2==0]
+print(x)
+
+x = {i:0 for i in range(20) if i%2==0}
+print(x)
+
+#tuple returns a generator obj
+x = (i for i in range(20) if i%2==0)
+print(x)
+
+x = tuple(i for i in range(20) if i%2==0)
+print(x)
+
+
+
+print("--------------------------------Tuples---------------------------")
+
+#Tuples are similar to lists but immutable. ()
+tup = (1,2,3)
+print(tup)
+tup[0]
+
+#can't modify
+#tup[0]=90  error: doesn't support item assignment
+
+#can be used as key for a hash map/set 
+myMap = {(1,2): 3}
+print(myMap)
+print(myMap[(1,2)])
+
+mySet = set()
+mySet.add(89)
+print(mySet)
+mySet.add((3,4))
+print(mySet)
+print((3,4) in mySet)
+
+#Lists can't be keys
+print(myMap)
+myMap[99] = 32
+print(myMap)
+#myMap[[3,4]]=5
+
+print('--------------------Functions------------------')
+
+#Functions
+def myFunc(n,m,d=2):
+    return n*m*d
+
+print(myFunc(3,4))
+print(myFunc(3,4,3))
+
+def myFunc():
+    def innerFunc():
+        print(True)
+    return innerFunc
+
+inner = myFunc()
+inner()
+#or
+myFunc()()
+
+#Nested functions have access to outer variable
+def outer(a,b):
+    c="c"
+
+    def inner():
+        c="d"
+        return a,b,c   #returns as tuple when returning multiple things
+    
+    return inner()
+
+p, q, r = outer("a","b")
+print(p,q,r)
+print(p,q,r , sep = '')
+#print(outer("a", "b"))
+
+# *keyword unpacks
+# ** unpacks for key-value pair
+x = [1,2,3,4,5,6,7,8,9]
+print(*x)
+
+# *args, **kwargs
+def func(*args, **kwargs):
+    print(*args, kwargs)
+#    print(**kwargs)   throws error
+
+func(*x,hello=1,world=2)
+
+
+#to change the value for outer fun variables
+#use nonloacal keyword
+#global to change the global scope vars ex, to change g
+g=90 
+def outer(a,b):
+    c="c"
+    def inner():
+        nonlocal c
+        c="d"
+        return a+b+c
+    
+    return inner() + c
+
+print(outer("a","b"))
+
+
+
+print("---------------------CLASS---------------------")
+
+#Class
+
+class MyClass:
+    #contructor
+    def __init__(self, nums):
+        #create member variables
+        self.nums= nums
+        self.size = len(nums)
+    
+    #self key word required as param
+    def getLength(self):
+        return self.size
+
+    def getDoubleLength(self):
+        return 2 * self.getLength()
+        
+p = MyClass(["Aryan"])
+print(p.getLength())
+print(p.getDoubleLength())
+
+
+#end argument inside print
+print("hello")
+print("world")
+print("hello", end="")
+print("world")
+
+#taking input
+
+# #name = input("Name: ")
+# age = input("Age: ")
+# print(age)
+# #print("your name is",name, "and your age is", age)
+# def doubleAge(age):
+#     if(age != None):
+#         return int(age)+2
+#     return
+# #cannot do any operation b/w str and int except *
+# print(doubleAge(age))
+
+
+#Conditions  return bool(True or False)
+# >=
+# >
+# <
+# <=
+# !=
+# ==
+
+#chained Conditions
+# and
+# or 
+# not
+# result4 = result1 or result2 or not result3
+print(not True)
+print(not (True or False))
+print(True and False)
+print(True or False)
+print(True or False and True or not True)
+#precedence: not -> and -> or
+
+
+print("-------------------------Slice operator----------------------")
+#Slice operator, works with sequences: Strings, lists, and tuples
+#sliced = x[start(index),stop(exclusive),step]
+x=[1,2,3,4,5,6,7,8,9]
+sliced = x[4:]
+print(sliced)
+sliced = x[4:2:-1]
+print(sliced)
+sliced=x[::-1]
+print(sliced)
+#works on tuple
+sliced = (1,2,3,4,5,5)[::2]
+print(sliced)
+
+print("---------------------------SETS--------------------")
+
+#SETS : unordered unique collection of elemets
+#used only when we care about something is there or not
+#extremely fast at lookups, removals or additions
+x = set() #use set const to create an empty set
+s = {}   #otherwise it'll create a dictionary
+
+s = {3,6,89,89,7,5,6,3434}   #fine for set literal
+print(type({}))
+print(type(s))
+print(s)    #unique collection
+
+s.add(33)
+s.remove(89)
+print(s)
+
+# s2 = [1,2,3,4,5,56] 
+# print(56 in s2)      #constant time( much slower)
+print(33 in s)       #O(1)
+
+# The union() and update() methods joins all items from both sets.
+# The intersection() method keeps ONLY the duplicates.
+# The difference() method keeps the items from the first set that are not in the other set(s).
+# The symmetric_difference() method keeps all items EXCEPT the duplicates.
+s = {3,6,89,89,7,5,6,3434}
+s2={1,2,3,4,5,56}
+print(s)
+print(s2)
+ns =s.union(s2)         # | , allows are other datatypes as well, result will be set
+new_set = s.union([1,2,3,4,5],(35,53,5,5)) 
+print("new_set: ",new_set)   #changes the original set, and does not return a new set.
+new_set.update(s)    
+print(new_set)
+print(ns)
+ns= s.intersection(s2)   # &
+print(ns)
+print(s.difference(s2))   # - : ele that are in s but aren't in s2
+print(ns)
+set1 = {"apple", "banana", "cherry"} # ^ : ele that are not in both the set(uncomman)
+set2 = {"google", "microsoft", "apple"}
+set3 = set1.symmetric_difference(set2)
+print(set3)
